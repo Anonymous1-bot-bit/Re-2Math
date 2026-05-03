@@ -45,7 +45,3 @@ The release is organized into four readable parts:
 - Domains: `analysis_pde`, `geometry_topology`, `algebra_number_theory`, `probability_statistics_control`, `combinatorics_discrete`
 - Completed model runs in the released tables: `7`
 - Released results correspond to the paper's fixed-budget, shared-backend scholarly-search setting with a release-frozen retrieval artifact.
-
-## Publish note
-
-To publish anonymously on GitHub, use the contents of this `public_release/` directory as the repository root rather than pushing the full local workspace.
