@@ -1,0 +1,34 @@
+{
+  "release_name": "Re2Math public release",
+  "generated_from": "local benchmark workspace",
+  "public_release_root": "public_release/",
+  "dataset": {
+    "full_rows": 860,
+    "full_raw_unique_papers": 653,
+    "full_version_normalized_unique_papers": 631,
+    "eval200_rows": 200,
+    "eval200_unique_papers": 162,
+    "eval200_raw_unique_papers": 167,
+    "eval200_version_normalized_unique_papers": 162,
+    "paper_count_convention": "paper-facing counts use arXiv-version-normalized paper_id values; raw counts preserve stored paper_id strings"
+  },
+  "results": {
+    "model_count": 7,
+    "oracle_evaluable_subset": 74
+  },
+  "included_directories": [
+    "data",
+    "code",
+    "results",
+    "docs"
+  ],
+  "excluded_from_public_release": [
+    "download caches",
+    "PDF collections",
+    "raw openrouter suite logs",
+    "exploratory shard outputs",
+    "machine-specific absolute paths",
+    "private API credentials",
+    "human-audit artifacts"
+  ]
+}

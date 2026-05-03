@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "paper_id": "arXiv:2505.01049v2",
+    "paper_title": "Multi-step Consistency Models: Fast Generation with Theoretical Guarantees"
+  },
+  "phase_1_problem": {
+    "global_context_latex": "Forward process (OU): $dx_t = -x_t dt + \\sqrt{2}dw_t$. Reverse PF-ODE: $dx_t = [-x_t - s_t(x_t)]dt$. Empirical ODE: $d\\hat{x}_t = [-\\hat{x}_t - \\hat{s}_t(\\hat{x}_t)]dt$. Consistency function $f(t', t, x_t)$ maps $x_t$ to $x_{t'}$. Multi-step sampling (Algorithm 1): $\\hat{x}_{k-1} = e^{t_{k-1}^{\\prime}-t_{k-1}}\\hat{f}(t_{k-1}^{\\prime}, t_k, \\hat{x}_k) + \\sqrt{1-e^{2(t_{k-1}^{\\prime}-t_{k-1})}}z$. Assumptions: (1) $\\mathbb{E}[\\|\\hat{s}_t - s_t\\|^2] \\le \\epsilon_{score}^2$; (2) Finite 2nd moment $m_2$; (Note: This extraction focuses on the Non-Smooth case, so Lipschitz score assumption is removed).",
+    "main_goal_latex": "Establish an upper bound for the KL divergence $KL(p_{t_0} || \\hat{p}_{t_0})$ in the non-smooth setting. The bound should characterize the convergence rate with respect to the dimension $d$, total time $T$, and score estimation error $\\epsilon_{score}$."
+  },
+  "phase_2_planning_oracle": {
+    "strategic_rationale": "We adopt a divide-and-conquer strategy by decomposing the global error into initialization and cumulative discretization errors, then handling the non-smooth score function by bounding the trajectory deviation using Gaussian perturbation properties.",
+    "roadmap_steps": [
+      {
+        "step_id": 1,
+        "sub_goal_description": "Given the multi-step sampling process, establish a decomposition of the global KL divergence into an initialization error term and a summation of step-wise conditional KL divergences."
+      },
+      {
+        "step_id": 2,
+        "sub_goal_description": "Given the Gaussian transition kernels of the sampling algorithm, establish an explicit algebraic expression for the conditional KL divergence at a single step."
+      },
+      {
+        "step_id": 3,
+        "sub_goal_description": "Given the error dynamics without Lipschitz assumptions, establish a bound on the trajectory deviation by exploiting the properties of Gaussian perturbations to control the score difference."
+      },
+      {
+        "step_id": 4,
+        "sub_goal_description": "Given the trajectory bounds and initialization error, establish the final global convergence rate."
+      }
+    ]
+  },
+  "phase_3_execution_ground_truth": {
+    "step_details": [
+      {
+        "target_step_id": 1,
+        "description": "Decompose the KL divergence using the chain rule and data processing inequality.",
+        "key_tools": [
+          {
+            "tool_type": "Internal/Standard",
+            "citation_id": "Lemma B.2",
+            "statement_latex": "$KL(p_{t_{0}}||\\hat{p}_{t_{0}})\\le KL(p_{t_{K}}||\\hat{p}_{t_{K}})+\\mathbb{E}_{p_{t_{1},...t_{K}}}[\\sum_{k=1}^{K}KL(p_{k-1|k}(\\cdot|x_{k})||\\hat{p}_{k-1|k}(\\cdot|x_{k}))]$"
+          }
+        ]
+      },
+      {
+        "target_step_id": 2,
+        "description": "Compute the specific KL divergence between two Gaussian distributions with shared covariance.",
+        "key_tools": [
+          {
+            "tool_type": "Internal/Standard",
+            "citation_id": "Lemma B.1",
+            "statement_latex": "$KL(p_{k-1|k}(\\cdot|x_{k})||\\hat{p}_{k-1|k}(\\cdot|x_{k}))=e^{2(t_{k-1}^{\\prime}-t_{k-1})}\\frac{\\|f(t_{k-1}^{\\prime},t_{k},x_{k})-\\hat{f}(t_{k-1}^{\\prime},t_{k},x_{k})\\|_{2}^{2}}{2(1-e^{2(t_{k-1}^{\\prime}-t_{k-1})})}$"
+          }
+        ]
+      },
+      {
+        "target_step_id": 3,
+        "description": "Construct the differential equation for the error $\\Delta_t$. Use Young's inequality to separate terms, then apply specific bounds for non-smooth scores (Gaussian perturbation) and Gronwall's inequality.",
+        "key_tools": [
+          {
+            "tool_type": "External Citation",
+            "citation_id": "Chen et al. (2023a)",
+            "statement_latex": "For $x \\sim p_{\\sigma}$, $|\\nabla^{2}log~p_{\\sigma}(x)||_{F,\\psi_{1}}\\le\\frac{d}{\\sigma^{2}}$"
+          },
+          {
+            "tool_type": "Internal/Standard",
+            "citation_id": "Lemma C.2",
+            "statement_latex": "$\\mathbb{E}\\|s_{t}(x_{t})-s_{t}(\\hat{x}_{t})\\|^{2}\\le\\frac{d^{2}}{\\sigma_{t}^{4}}\\mathbb{E}[\\|\\Delta_{t}\\|^{2}exp(\\frac{\\|\\Delta_{t}\\|^{2}}{2\\sigma_{t}^{2}})]$"
+          },
+          {
+            "tool_type": "Internal/Standard",
+            "citation_id": "Young's Inequality",
+            "statement_latex": "$2ab \\le (2+\\frac{2}{h})a^2 + hb^2$"
+          },
+          {
+            "tool_type": "Internal/Standard",
+            "citation_id": "Gronwall's Inequality",
+            "statement_latex": "NOT_STATED"
+          }
+        ]
+      },
+      {
+        "target_step_id": 4,
+        "description": "Bound the initialization error using standard results for the OU process and sum the terms.",
+        "key_tools": [
+          {
+            "tool_type": "External Citation",
+            "citation_id": "Standard Langevin Dynamics Results",
+            "statement_latex": "$KL(p_{T}||\\gamma_{d})\\le(d+m_{2})e^{-T}$"
+          }
+        ]
+      }
+    ]
+  }
+}
