@@ -1,6 +1,6 @@
-# Re2Math Public Release
+# Re2Math
 
-This directory is the cleaned public-release layer for **Re2Math:
+This directory is the public-release layer for **Re2Math:
 Benchmarking Theorem Retrieval in Research-Level Mathematics**. It is intended
 to be published as an anonymous GitHub repository root.
 
