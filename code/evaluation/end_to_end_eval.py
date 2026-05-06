@@ -28,7 +28,7 @@ from common.citation_matching import (
     extract_citation_title,
     is_strict_title_match,
 )
-from common.openrouter_suite import build_reasoning_extra_body
+from common.openrouter_suite import DEFAULT_JUDGE_MODEL, build_reasoning_extra_body
 from common.dataset_format import (
     CANONICAL_LOCAL_WINDOW,
     DEFAULT_DATASET_FILE,
@@ -126,6 +126,9 @@ def build_llm_config_from_env(prefix: str, fallback: Optional[LLMConfig] = None)
         api_key = api_key or fallback.api_key
         base_url = base_url or fallback.base_url
         model_name = model_name or fallback.model_name
+
+    if prefix == "JUDGE" and not model_name:
+        model_name = DEFAULT_JUDGE_MODEL
 
     timeout_sec = float(timeout) if timeout else (fallback.timeout_sec if fallback else 120.0)
 

@@ -38,7 +38,7 @@ from common.citation_matching import (
     check_title_match,
     extract_citation_title,
 )
-from common.openrouter_suite import build_reasoning_extra_body
+from common.openrouter_suite import DEFAULT_JUDGE_MODEL, build_reasoning_extra_body
 from common.retrieval_backends import build_retriever
 from common.retrieval_query_generation import generate_query_package, generate_search_query, predict_planning_anchor
 
@@ -325,7 +325,7 @@ def main() -> None:
         if needs_judge and not judge_key:
             judge_key = getenv_required("JUDGE_API_KEY", alt_names=["OPENAI_API_KEY"])
         judge_base_url = getenv_optional("JUDGE_BASE_URL") or base_url
-        judge_model = getenv_optional("JUDGE_MODEL_NAME", "JUDGE_MODEL", "OPENAI_JUDGE_MODEL") or model
+        judge_model = getenv_optional("JUDGE_MODEL_NAME", "JUDGE_MODEL", "OPENAI_JUDGE_MODEL") or DEFAULT_JUDGE_MODEL
         if needs_judge:
             judge_client = build_openai_client(judge_key, judge_base_url)
 

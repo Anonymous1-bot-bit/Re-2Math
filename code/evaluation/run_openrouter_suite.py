@@ -15,7 +15,13 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))
 
-from common.openrouter_suite import OPENROUTER_BASE_URL, ModelSpec, parse_model_specs, resolve_dataset_path
+from common.openrouter_suite import (
+    DEFAULT_JUDGE_MODEL,
+    OPENROUTER_BASE_URL,
+    ModelSpec,
+    parse_model_specs,
+    resolve_dataset_path,
+)
 
 
 OUT_DIR = ROOT / "evaluation" / "outputs"
@@ -367,7 +373,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--out-root", default=str(OUT_DIR / "openrouter_suites"))
     parser.add_argument("--model", action="append", default=[], help="Optional alias=slug override. If omitted, uses the default 8-model suite.")
     parser.add_argument("--api-key", default="", help="Optional OpenRouter API key override.")
-    parser.add_argument("--judge-model", default="", help="Optional fixed judge model slug. Default: same as the solver model.")
+    parser.add_argument("--judge-model", default=DEFAULT_JUDGE_MODEL, help=f"Optional fixed judge model slug. Default: {DEFAULT_JUDGE_MODEL}.")
     parser.add_argument("--limit", type=int, default=None, help="Optional dataset cap for smoke tests.")
     parser.add_argument("--backend", choices=["scholar", "offline_metadata_bm25", "offline_fulltext_bm25"], default="scholar")
     parser.add_argument("--snapshot", default="")
@@ -375,7 +381,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--shortlist-k", type=int, default=20)
     parser.add_argument("--shortlist-size", type=int, default=1)
     parser.add_argument("--oracle-mode", choices=["fulltext", "blocks"], default="fulltext")
-    parser.add_argument("--reasoning-effort", choices=["minimal", "low", "medium", "high", "xhigh"], default="low")
+    parser.add_argument("--reasoning-effort", choices=["minimal", "low", "medium", "high", "xhigh"], default="medium")
     parser.add_argument("--parallel-models", type=int, default=1, help="Number of model pipelines to run concurrently.")
     parser.add_argument("--end-to-end-shards", type=int, default=1, help="Parallel shards for the end-to-end stage only.")
     parser.add_argument("--resume", action="store_true", help="Skip steps whose output files already exist.")

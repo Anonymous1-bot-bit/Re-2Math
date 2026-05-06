@@ -10,7 +10,8 @@ from common.dataset_format import DEFAULT_DATASET_FILE
 
 ROOT = Path(__file__).resolve().parents[1]
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-DEFAULT_REASONING_EFFORT = "low"
+DEFAULT_REASONING_EFFORT = "medium"
+DEFAULT_JUDGE_MODEL = "openai/gpt-5.4"
 
 
 @dataclass(frozen=True)

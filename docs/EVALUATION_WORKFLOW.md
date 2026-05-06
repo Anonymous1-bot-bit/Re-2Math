@@ -6,6 +6,13 @@ Re2Math results.
 The released numbers correspond to the paper's fixed-budget, shared-backend
 scholarly-search setting.
 
+## Implementation constants
+
+- canonical reasoning effort: `medium`
+- canonical fixed judge model: `openai/gpt-5.4`
+- canonical retrieval budget: one model-generated scholarly-search query per
+  instance, Top-20 Scholar metadata retained, shortlist size `1`
+
 ## End-to-end protocol
 
 For each Eval-200 instance:
