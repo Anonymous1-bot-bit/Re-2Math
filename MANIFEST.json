@@ -4,13 +4,10 @@
   "public_release_root": "public_release/",
   "dataset": {
     "full_rows": 860,
-    "full_raw_unique_papers": 653,
-    "full_version_normalized_unique_papers": 631,
+    "full_unique_papers": 653,
     "eval200_rows": 200,
-    "eval200_unique_papers": 162,
-    "eval200_raw_unique_papers": 167,
-    "eval200_version_normalized_unique_papers": 162,
-    "paper_count_convention": "paper-facing counts use arXiv-version-normalized paper_id values; raw counts preserve stored paper_id strings"
+    "eval200_unique_papers": 167,
+    "paper_count_convention": "public-release summaries use raw stored paper_id values"
   },
   "results": {
     "model_count": 7,

@@ -18,8 +18,7 @@ This directory contains the canonical dataset snapshots used by the public relea
 ## Full dataset snapshot
 
 - rows: `860`
-- version-normalized unique papers: `631`
-- raw stored `paper_id` values: `653`
+- distinct stored `paper_id` values: `653`
 
 ### Domain breakdown
 
@@ -59,10 +58,9 @@ This directory contains the canonical dataset snapshots used by the public relea
 ## Eval-200 snapshot
 
 - rows: `200`
-- version-normalized unique papers: `162`
-- raw stored `paper_id` values: `167`
+- distinct stored `paper_id` values: `167`
 - strict-quality pass rate before balancing: `0.825`
-- paper-count convention: paper-facing counts use arXiv-version-normalized `paper_id` values; raw counts are retained separately for transparency.
+- paper-count convention: public-release summaries use raw stored `paper_id` values.
 
 ### Eval-200 domain balance
 

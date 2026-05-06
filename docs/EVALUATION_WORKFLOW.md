@@ -39,7 +39,7 @@ For each Eval-200 instance:
 
 ## Eval-200
 
-The released evaluation split contains `200` instances from `162` distinct version-normalized citing papers (`167` raw stored `paper_id` values) and is:
+The released evaluation split contains `200` instances from `167` distinct stored `paper_id` values and is:
 
 - quality-controlled
 - domain-balanced

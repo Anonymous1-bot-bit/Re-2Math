@@ -1,10 +1,8 @@
 {
   "rows": 200,
   "unique_ids": 200,
-  "unique_papers": 162,
-  "raw_unique_papers": 167,
-  "version_normalized_unique_papers": 162,
-  "paper_count_convention": "paper-facing counts use arXiv-version-normalized paper_id values; raw counts preserve stored paper_id strings",
+  "unique_papers": 167,
+  "paper_count_convention": "public-release summaries use raw stored paper_id values",
   "all_journal_paper": true,
   "all_have_locator_evidence": true,
   "all_have_anchor_hint": true,

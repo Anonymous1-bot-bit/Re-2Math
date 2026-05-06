@@ -6,7 +6,7 @@
 - All listed models are complete.
 - `OracleCoverage` is displayed using the unified oracle-evaluable subset from `revision_oracle_materialization_20260425.json` (`74/200`).
 - `Oracle ToolAcc` remains the per-model oracle-run score; only the coverage denominator is normalized in these paper-facing tables.
-- Appendix stratified-table `Papers` columns preserve raw stored `paper_id` values from the evaluation artifacts; high-level release docs use version-normalized paper counts.
+- Appendix stratified-table `Papers` columns preserve raw stored `paper_id` values from the evaluation artifacts; high-level release docs use the same raw stored `paper_id` convention.
 
 ## Main Table 1: Core End-to-End
 

@@ -1,6 +1,6 @@
-# Re2Math
+# Re2Math Public Release
 
-This directory is the public-release layer for **Re2Math:
+This directory is the cleaned public-release layer for **Re2Math:
 Benchmarking Theorem Retrieval in Research-Level Mathematics**. It is intended
 to be published as an anonymous GitHub repository root.
 
@@ -40,8 +40,12 @@ The release is organized into four readable parts:
 
 ## Release snapshot
 
-- Full dataset: `860` instances from `631` distinct version-normalized citing papers (`653` raw stored `paper_id` values)
-- Eval-200: `200` instances from `162` distinct version-normalized citing papers (`167` raw stored `paper_id` values)
+- Full dataset: `860` instances from `653` distinct stored `paper_id` values
+- Eval-200: `200` instances from `167` distinct stored `paper_id` values
 - Domains: `analysis_pde`, `geometry_topology`, `algebra_number_theory`, `probability_statistics_control`, `combinatorics_discrete`
 - Completed model runs in the released tables: `7`
 - Released results correspond to the paper's fixed-budget, shared-backend scholarly-search setting with a release-frozen retrieval artifact.
+
+## Publish note
+
+To publish anonymously on GitHub, use the contents of this `public_release/` directory as the repository root rather than pushing the full local workspace.

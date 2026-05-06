@@ -1,9 +1,8 @@
 {
   "release_id": "benchmark_dataset_coretask_curated_20260422",
   "rows": 860,
-  "raw_unique_papers": 653,
-  "version_normalized_unique_papers": 631,
-  "paper_count_convention": "paper-facing counts use arXiv-version-normalized paper_id values; raw counts preserve stored paper_id strings",
+  "unique_papers": 653,
+  "paper_count_convention": "public-release summaries use raw stored paper_id values",
   "domain_counts": {
     "algebra_number_theory": 165,
     "analysis_pde": 170,
